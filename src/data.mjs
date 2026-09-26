@@ -3,7 +3,7 @@
 // business plan (see BRIEF.md). No invented figures, prices or testimonials.
 
 export const SITE = {
-  url: 'https://biziaconsulting.com',
+  url: 'https://www.biziaconsulting.com',
   name: 'BizIA',
   legalName: 'BizIA Consulting',
   email: 'info@biziaconsulting.com',

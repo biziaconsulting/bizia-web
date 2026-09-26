@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://biziaconsulting.com/sitemap.xml
+Sitemap: https://www.biziaconsulting.com/sitemap.xml

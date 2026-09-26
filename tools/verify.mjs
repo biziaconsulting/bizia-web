@@ -43,7 +43,7 @@ for (const p of PAGES) {
   ok(`one h1 ${p}`, info.h1 === 1, `h1=${info.h1}`);
   ok(`lang es ${p}`, info.lang === 'es');
   ok(`title/desc ${p}`, !!info.title && !!info.desc && info.desc.length >= 70 && info.desc.length <= 170, `${info.title.length}c / ${info.desc?.length}c`);
-  ok(`canonical ${p}`, info.canonical === `https://biziaconsulting.com${p === '/' ? '/' : p}` && info.ogUrl === info.canonical, info.canonical);
+  ok(`canonical ${p}`, info.canonical === `https://www.biziaconsulting.com${p === '/' ? '/' : p}` && info.ogUrl === info.canonical, info.canonical);
   ok(`no em dash ${p}`, !info.emDash);
   ok(`img alt ${p}`, info.imgsNoAlt === 0);
   titles.add(info.title); descs.add(info.desc);

@@ -50,7 +50,7 @@ Cada solicitud llega como un email con todos los campos del formulario, la fecha
 
 ## Después de publicar (SEO y sitelinks)
 
-- En Google Search Console, envía `https://biziaconsulting.com/sitemap.xml` y pide la indexación de `/`, `/soluciones`, `/preguntas-frecuentes`, `/contacto` y `/nosotros`.
+- En Google Search Console, envía `https://www.biziaconsulting.com/sitemap.xml` (propiedad de dominio `biziaconsulting.com`) y pide la indexación de `/`, `/soluciones`, `/preguntas-frecuentes`, `/contacto` y `/nosotros`.
 - Revisa los datos estructurados en https://search.google.com/test/rich-results
 - Google decide si muestra sitelinks. La web se lo pone fácil: páginas propias con títulos únicos, navegación coherente, breadcrumbs, sitemap y datos de organización.
 
