@@ -1,0 +1,169 @@
+<!-- 1 · HERO. The only scrub on the page: the visitor's own desk clears
+     under their hand. Planes: video plate (far, answers the pointer), warm
+     light (atmosphere), a gradient that radiates from the centre, and the
+     centred copy. One message, one action; the copy holds and leaves with
+     the hero, straight into the next section. -->
+<section class="hero" id="inicio" data-sc-act="scrub" data-sc-span="1.7" data-sc-dwell="0.2" aria-labelledby="hero-h">
+  <div data-sc-stage class="hero__stage">
+    <div class="hero__plate">
+      <picture>
+        <source media="(max-width: 860px)" srcset="/assets/hero-poster-m.webp" width="720" height="720">
+        <img class="sc-stage__poster" src="/assets/hero-poster.webp" width="1920" height="1080" alt="Vista cenital de un escritorio de nogal con un portátil, documentos impresos, un bolígrafo, una taza y un cactus." fetchpriority="high" decoding="async">
+      </picture>
+      <video data-sc-scrub data-sc-src="/assets/hero.mp4" data-sc-src-mobile="/assets/hero-m.mp4" muted playsinline aria-hidden="true" tabindex="-1"></video>
+    </div>
+    <div class="hero__light" aria-hidden="true"></div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="sc-copy sc-copy--center hero__copy" data-sc-cue="0 1 0 0">
+      <h1 id="hero-h" class="hero__title"><span class="hero__line">IA hecha <span class="grad">a medida</span></span> <span class="hero__line">de tus procesos.</span></h1>
+      <p class="hero__sub">Soluciones con agentes de IA para asesorías y gestorías, adaptadas a tus procedimientos. Y formamos a tu equipo para usarlas.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="/contacto" data-home="#contacto"><!-- @cta -->{{icon:arrow}}</a>
+        <a class="btn btn--ghost" href="#ejemplos">Ver cómo funciona</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · ORIENTATION: what they already use. Flow + a marquee that answers the
+     speed of the wheel. -->
+<section class="tools" aria-label="Tecnología con la que trabajamos">
+  <div class="wrap tools__top">
+    <ul class="chips" data-sc-in data-sc-stagger="70">
+      <li>{{icon:check}}Primera conversación gratuita</li>
+      <li>{{icon:check}}Con las herramientas que ya usas</li>
+      <li>{{icon:check}}Supervisión humana siempre</li>
+    </ul>
+    <p class="tools__label" data-sc-in>Tecnología con la que trabajamos. <span>Ningún proveedor es obligatorio: elegimos según tu caso.</span></p>
+  </div>
+  <div class="marquee" data-marquee>
+    <div class="marquee__track"><!-- @tools --></div>
+  </div>
+</section>
+
+<!-- 3 · UNEASE: the stage holds while the notes pile up. -->
+<section class="problem" id="problema" data-sc-act="pin" data-sc-span="2.4" data-sc-mobile="flow" aria-labelledby="problema-h">
+  <div data-sc-stage class="problem__stage">
+    <div class="wrap problem__grid">
+      <div class="problem__copy">
+        <h2 id="problema-h" class="h2">Tu despacho crece a base de horas, no de eficiencia.</h2>
+        <p class="lede">Cada cliente nuevo trae más documentación que reclamar, más comunicaciones que preparar y más reuniones que ordenar. El trabajo repetitivo se come tu margen y te obliga a contratar para poder crecer.</p>
+        <p class="body">Has oído hablar de la IA, pero no sabes por dónde empezar ni si fiarte de ella con datos tan sensibles. Es una decisión razonable. Por eso empezamos con una conversación y una demostración con ejemplos, antes de pedirte nada.</p>
+      </div>
+      <ul class="pile" data-sc-in data-sc-stagger="70">
+        <li class="note" style="--at:.02;--rot:-3.5deg;--dx:-4%"><h3>Horas perdidas</h3><p>Tareas mecánicas que repites cada mes y que nadie disfruta hacer.</p></li>
+        <li class="note" style="--at:.17;--rot:2.5deg;--dx:6%"><h3>Plazos al límite</h3><p>El calendario fiscal depende de la memoria y de los recordatorios manuales.</p></li>
+        <li class="note" style="--at:.32;--rot:-1.5deg;--dx:-2%"><h3>Crecer = contratar</h3><p>Más clientes solo caben a costa de más personas y más coste fijo.</p></li>
+        <li class="note" style="--at:.47;--rot:3deg;--dx:4%"><h3>IA sin rumbo</h3><p>Mucho ruido sobre inteligencia artificial y cero claridad sobre qué aporta a tu despacho.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · CLARITY, and the authored quiet before the peak. -->
+<section class="offer" id="soluciones" aria-labelledby="soluciones-h">
+  <div class="wrap">
+    <header class="offer__head">
+      <p class="eyebrow" data-sc-in>¿Qué te ofrecemos?</p>
+      <h2 id="soluciones-h" class="h2 h2--xl" data-sc-in>Soluciones a medida con agentes de IA. <span class="grad grad--deep">La IA propone, tu equipo decide.</span></h2>
+      <p class="lede" data-sc-in>Seleccionamos y configuramos las herramientas adecuadas, adaptamos los procedimientos de tu despacho, probamos el resultado y enseñamos a tu equipo a utilizarlas con autonomía.</p>
+    </header>
+    <div class="offer__grid">
+      <div class="offer__cell offer__cell--main" data-sc-in>
+        <article class="ocard ocard--main" data-sc-tilt="3">
+          <div class="ocard__stack" aria-hidden="true"><i></i><i></i><i></i></div>
+          <p class="ocard__kicker">Oferta principal</p>
+          <h3 class="ocard__t">Soluciones a medida con agentes de IA</h3>
+          <p>Preparamos una tarea o un proceso para que tu equipo lo ejecute con ayuda de agentes de IA: gestión documental, comunicaciones y organización del trabajo. Incluye configuración, instrucciones y plantillas, pruebas y formación.</p>
+          <a class="link" href="/soluciones#soluciones-a-medida">Ver soluciones{{icon:arrow}}</a>
+        </article>
+      </div>
+      <div class="offer__cell" data-sc-in>
+        <article class="ocard ocard--side" data-sc-tilt="3">
+          <p class="ocard__kicker">También por separado</p>
+          <h3 class="ocard__t">Formación aplicada a tu equipo</h3>
+          <p>Un taller de dos horas para un grupo pequeño, con dos ejercicios elegidos previamente y materiales preparados. Cada participante sale sabiendo repetir una tarea y cuándo debe revisar o pedir ayuda.</p>
+          <a class="link" href="/soluciones#formacion">Ver formación{{icon:arrow}}</a>
+        </article>
+      </div>
+    </div>
+    <p class="offer__after" data-sc-in>Después de la entrega, acompañamiento mensual opcional y sin permanencia.</p>
+    <ul class="principles" data-sc-in data-sc-stagger="80">
+      <li><h3>Con tus herramientas</h3><p>Primero comprobamos si las licencias que ya tiene tu despacho resuelven el caso. Ningún proveedor es obligatorio.</p></li>
+      <li><h3>Con tus procedimientos</h3><p>Trabajamos con tus tareas, tus documentos y tus criterios, no con plantillas genéricas.</p></li>
+      <li><h3>Con control humano</h3><p>Todo lo que sale hacia un cliente queda como borrador. La IA acelera; no decide por ti.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5 · PEAK. The sheets that flew off the desk come back scattered and put
+     themselves in order. Real markup, computed from the fictional cases. -->
+<section class="demo" id="ejemplos" data-sc-act="pin" data-sc-span="3.8" data-jump="0.36" aria-labelledby="ejemplos-h">
+  <div data-sc-stage class="demo__stage">
+    <div class="wrap demo__wrap">
+      <div class="demo__top">
+        <div class="demo__head">
+          <h2 id="ejemplos-h" class="h2">Ejemplos de lo que dejamos de hacer a mano</h2>
+          <p class="body">Empezamos por tareas concretas que puedas enseñarnos con ejemplos. En la conversación gratuita elegimos la que más te conviene.</p>
+        </div>
+        <div class="demo__controls">
+          <div class="cases" role="tablist" aria-label="Elige un ejemplo"><!-- @demo:tabs --></div>
+          <p class="demo__tag">{{icon:target}}Ejemplo ficticio · datos inventados</p>
+        </div>
+      </div>
+      <div class="board" id="demo-board" role="tabpanel" aria-labelledby="case-reuniones" data-board>
+        <div class="board__links" aria-hidden="true"><span class="board__link" style="--x:24.25%"></span><span class="board__link" style="--x:50%"></span><span class="board__link" style="--x:75.75%"></span></div>
+        <ol class="board__flow"><!-- @demo:board --></ol>
+      </div>
+      <div class="demo__foot">
+        <p>¿Lo vemos con un ejemplo de tu despacho?</p>
+        <a class="btn btn--primary" href="/contacto" data-home="#contacto" data-carry><!-- @cta -->{{icon:arrow}}</a>
+        <span class="demo__carry" data-carry-note>Añadiremos el ejemplo elegido a tu solicitud.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- @demo:json -->
+
+<section class="more" aria-labelledby="mas-h">
+  <div class="wrap more__grid">
+    <h2 id="mas-h" class="h3" data-sc-in>Otras tareas que podemos preparar</h2>
+    <ul class="more__list" data-sc-in data-sc-stagger="70"><!-- @other-tasks --></ul>
+  </div>
+</section>
+
+<!-- 6 · CONFIDENCE: the route draws itself and stamps each step. -->
+<!-- @steps -->
+
+<!-- 7 · HONEST TRUST: reasons travel sideways, each with its fact. -->
+<section class="why" id="por-que" data-sc-act="pan" data-sc-span="2.8" data-sc-mobile="flow" aria-labelledby="porque-h">
+  <div data-sc-stage class="why__stage">
+    <div class="why__lead">
+      <p class="eyebrow">Por qué BizIA</p>
+      <h2 id="porque-h" class="h2">Tus tareas, tus documentos, tu criterio.</h2>
+      <p class="body">Trabajamos con datos sensibles y lo tratamos como tal.</p>
+    </div>
+    <div class="why__rail" data-sc-pan="0.02">
+      <!-- @reasons -->
+      <div class="why__end">
+        <p class="why__end-t">Si algo no encaja, te lo decimos antes de empezar.</p>
+        <a class="link" href="/nosotros">Conoce al equipo{{icon:arrow}}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · CALM: the administrative part, compressed. -->
+<section class="faq" id="preguntas" aria-labelledby="preguntas-h">
+  <div class="wrap faq__grid">
+    <div class="faq__head" data-sc-in>
+      <h2 id="preguntas-h" class="h2">Las dudas que ya esperábamos</h2>
+      <p class="body">Si te queda alguna, plantéala en la conversación gratuita: es justo para eso.</p>
+      <a class="link" href="/preguntas-frecuentes">Ver todas las preguntas{{icon:arrow}}</a>
+    </div>
+    <div class="faq__list"><!-- @faq:home --></div>
+  </div>
+</section>
+
+<!-- 9 · ARRIVAL: the map lands on Mundaiz, the form sits beside it. -->
+<!-- @contact -->
