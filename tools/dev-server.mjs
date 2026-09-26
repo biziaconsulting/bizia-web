@@ -3,7 +3,7 @@
 //   - cleanUrls (/nosotros -> nosotros.html), 404.html for misses
 //   - the "/(.*)" headers from web/vercel.json (so CSP problems show up here)
 //   - POST /api/audit runs the real function in web/api/audit.mjs
-//   - a mock n8n webhook at /__mock/n8n that appends payloads to
+//   - a mock Resend API at /__mock/resend that appends email payloads to
 //     lab/webhook-log.jsonl (MOCK_FAIL=1 makes it answer 500)
 //
 //   node tools/dev-server.mjs [--port 4600]
@@ -18,7 +18,8 @@ const LAB = path.join(ROOT, 'lab');
 const argv = process.argv.slice(2);
 const PORT = parseInt(argv[argv.indexOf('--port') + 1] || process.env.PORT || '4600', 10) || 4600;
 
-process.env.N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL || `http://localhost:${PORT}/__mock/n8n`;
+process.env.RESEND_API_URL = process.env.RESEND_API_URL || `http://localhost:${PORT}/__mock/resend`;
+process.env.RESEND_API_KEY = process.env.RESEND_API_KEY || 're_local_mock';
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
@@ -57,13 +58,13 @@ http.createServer(async (req, res) => {
   const url = req.url;
   globalHeaders.forEach((h) => res.setHeader(h.key, h.value));
 
-  if (url.startsWith('/__mock/n8n')) {
+  if (url.startsWith('/__mock/resend')) {
     const raw = await readBody(req);
     fs.mkdirSync(LAB, { recursive: true });
     fs.appendFileSync(path.join(LAB, 'webhook-log.jsonl'), raw + '\n');
     if (process.env.MOCK_FAIL === '1') { res.statusCode = 500; return res.end('mock failure'); }
     res.setHeader('Content-Type', 'application/json');
-    return res.end('{"received":true}');
+    return res.end('{"id":"mock"}');
   }
 
   if (url.split('?')[0] === '/api/audit') {
@@ -89,5 +90,5 @@ http.createServer(async (req, res) => {
   });
   fs.createReadStream(file).pipe(res);
 }).listen(PORT, () => {
-  console.log(`BizIA dev: http://localhost:${PORT}  (webhook -> ${process.env.N8N_WEBHOOK_URL})`);
+  console.log(`BizIA dev: http://localhost:${PORT}  (email -> ${process.env.RESEND_API_URL})`);
 });

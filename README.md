@@ -8,14 +8,14 @@ Nueva web de biziaconsulting.com: estática (HTML, CSS y JS), con una función d
 web/                 ← carpeta que se publica (raíz del proyecto en Vercel)
   *.html             páginas generadas: NO se editan a mano
   css/ js/           estilos y scripts (scrollcraft.* es el motor: no se toca)
-  api/audit.mjs      POST /api/audit → reenvía el formulario al webhook de n8n
+  api/audit.mjs      POST /api/audit → envía el formulario por email con Resend
   assets/ fonts/ vendor/
   vercel.json        URLs limpias, cabeceras de seguridad y CSP
 src/pages/*.html     contenido de cada página (aquí se edita el texto)
 src/data.mjs         textos compartidos: navegación, FAQ, pasos, dirección y datos estructurados
 src/demo-data.mjs    los tres ejemplos ficticios de la demostración
 tools/build.mjs      genera web/*.html, sitemap.xml, robots.txt y el manifest
-tools/dev-server.mjs servidor local igual que Vercel, con un webhook de prueba
+tools/dev-server.mjs servidor local igual que Vercel, con un Resend simulado
 tools/verify.mjs     103 comprobaciones: enlaces, SEO, formulario, teclado, móvil
 BRIEF.md             decisiones de diseño
 ```
@@ -34,7 +34,7 @@ node tools/build.mjs
 node tools/dev-server.mjs
 ```
 
-Luego abre http://localhost:4600. En local, el formulario escribe en `lab/webhook-log.jsonl` en lugar de enviar a n8n.
+Luego abre http://localhost:4600. En local, el formulario no envía emails: guarda lo que se mandaría a Resend en `lab/webhook-log.jsonl`.
 
 ## Publicar en Vercel
 
@@ -42,10 +42,14 @@ Luego abre http://localhost:4600. En local, el formulario escribe en `lab/webhoo
    - Framework Preset: **Other**
    - Root Directory: **web**
    - Build Command: vacío
-2. En Environment Variables, añade **`N8N_WEBHOOK_URL`** con la URL del webhook de n8n que usa hoy el formulario. La encontrarás en la configuración del proyecto actual. Opcionalmente, añade `N8N_WEBHOOK_SECRET`; se envía en la cabecera `X-Webhook-Secret`.
-3. Despliega. Las URLs que ya existen no cambian: `/nosotros`, `/aviso-legal`, `/privacidad` y `/cookies`.
+2. Conecta Resend al proyecto desde **Vercel → Integrations (Marketplace) → Resend**. La integración crea la variable **`RESEND_API_KEY`**. También puedes crearla a mano con una API key de resend.com.
+3. En Resend, verifica el dominio **biziaconsulting.com** (registros DNS). Sin dominio verificado, Resend no permite enviar desde `web@biziaconsulting.com`.
+4. Opcional, en Environment Variables:
+   - `CONTACT_TO_EMAIL`: a quién llega el formulario (por defecto `info@biziaconsulting.com`; admite varios separados por coma).
+   - `CONTACT_FROM_EMAIL`: remitente (por defecto `BizIA Web <web@biziaconsulting.com>`).
+5. Despliega. Las URLs que ya existen no cambian: `/nosotros`, `/aviso-legal`, `/privacidad` y `/cookies`.
 
-El payload que recibe n8n tiene los mismos campos que lee la plantilla de email actual: `nombre, despacho, email, telefono, empleados, software, mensaje, enviadoEn, origen`. También se añade `consentimiento`.
+Cada solicitud llega como un email con todos los campos del formulario, la fecha, la página de origen y un botón para responder. El «Responder» del email va directamente a la persona que escribió.
 
 ## Después de publicar (SEO y sitelinks)
 

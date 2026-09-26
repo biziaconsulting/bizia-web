@@ -99,7 +99,7 @@ const sentText = await page.$eval('.form', (f) => f.innerText).catch(() => '');
 ok('JS submit shows success', /Gracias, Prueba/.test(sentText), sentText.slice(0, 80).replace(/\n/g, ' '));
 const after = fs.existsSync(log) ? fs.readFileSync(log, 'utf8').trim().split('\n').filter(Boolean) : [];
 const last = after.length > before ? JSON.parse(after[after.length - 1]) : null;
-ok('webhook received the payload', !!last && last.nombre === 'Prueba Verificación' && last.email === 'prueba@example.com' && !!last.enviadoEn && last.origen === 'biziaconsulting.com/contacto',
+ok('Resend received the email', !!last && last.reply_to === 'prueba@example.com' && /Despacho de Prueba/.test(last.subject) && /Prueba Verificaci/.test(last.html) && /biziaconsulting\.com\/contacto/.test(last.text) && Array.isArray(last.to),
   last ? Object.keys(last).join(',') : 'nothing');
 
 // no-JS POST: 303 back to the page, never personal data in the URL
