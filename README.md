@@ -38,10 +38,7 @@ Luego abre http://localhost:4600. En local, el formulario no envía emails: guar
 
 ## Publicar en Vercel
 
-1. En el proyecto de Vercel donde está ahora biziaconsulting.com, configura:
-   - Framework Preset: **Other**
-   - Root Directory: **web**
-   - Build Command: vacío
+1. Importa el repo en Vercel. No hace falta tocar nada: el `vercel.json` de la raíz ya indica que se publica `web/`, sin instalación ni build (también funciona si pones Root Directory `web`).
 2. Conecta Resend al proyecto desde **Vercel → Integrations (Marketplace) → Resend**. La integración crea la variable **`RESEND_API_KEY`**. También puedes crearla a mano con una API key de resend.com.
 3. En Resend, verifica el dominio **biziaconsulting.com** (registros DNS). Sin dominio verificado, Resend no permite enviar desde `web@biziaconsulting.com`.
 4. Opcional, en Environment Variables:
